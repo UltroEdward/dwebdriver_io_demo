@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./*"
+      ],
+      "src/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "node",
+      "webdriverio"
+    ]
+  },
+  "include": [
+    "./**/*.ts"
+  ]
+}

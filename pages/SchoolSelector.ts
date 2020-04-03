@@ -1,44 +1,52 @@
-import BasePage from './BasePage'
+import BasePage from './BasePage';
 
 export class SchoolSelector extends BasePage {
     get startContainer() {
-        return $('.div-root-3')
+        return $('.div-root-3');
     }
 
     get submitContainer() {
-        return $('.div-root-180')
+        return $('.div-root-180');
     }
 
     get startButton() {
-        return this.startContainer.$('.MuiBaseButton-root')
+        return this.startContainer.$('.MuiBaseButton-root');
     }
 
     get schoolInput() {
-        return $('#school-state-select')
+        return $('#school-state-select');
     }
 
     get districtInput() {
-        return $('#school-district-select')
+        return $('#school-district-select');
     }
 
     get submitButton() {
-        return this.submitContainer.$('button')
+        return this.submitContainer.$('button');
     }
 
     submitForm(school: String, district: String) {
         this.schoolInput.setValue(school);
         this.districtInput.setValue(district);
-        browser.waitUntil(() => this.submitButton.isClickable(), 5000)
-        this.submitButton.click()
+        browser.waitUntil(() => this.submitButton.isClickable(), 5000);
+        this.submitButton.click();
     }
 
     get formValidationErrors() {
-        return this.submitContainer.$('.validation-errors')
+        return this.submitContainer.$('.validation-errors');
+    }
+
+    get schoolValidationError() {
+        return this.formValidationErrors.$('.school-error');
+    }
+
+    get districtValidationError () {
+        return this.formValidationErrors.$('.district-error');
     }
 
     get formSuccessMessage() {
-        return this.submitContainer.$('.success')
+        return this.submitContainer.$('.success');
     }
 }
 
-export default new SchoolSelector()
+export default new SchoolSelector();
